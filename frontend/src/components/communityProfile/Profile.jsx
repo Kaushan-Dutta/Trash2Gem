@@ -1,20 +1,20 @@
 import React from 'react'
 import './Profile.css';
 
-const Profile = () => {
+const Profile = ({image,name,descrip}) => {
   return (
     <div className='profile-main'>
       <div className='profile-sub'>
         <div className='profile-image'>
-          <img src="https://i.pravatar.cc/23" alt="Profile Image" />
+          <img src={image} alt="Profile Image" />
         </div>
         <div className='profile-descrip'>
           <div className=''>
-            <h1 className='profile-name' >Robin Hood Community</h1>
+            <h1 className='profile-name' >{name}</h1>
           </div>
           {/* <br /> */}
           <div className=''>
-            <p className='profile-info' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium ut animi dolor commodi, culpa fuga amet obcaecati neque ducimus eligendi laboriosam deleniti cupiditate, consequatur reiciendis a voluptate nostrum pariatur. Rem?</p>
+            <p className='profile-info' >{descrip}</p>
           </div>
           {/* <br /> */}
           <div className='profile-loc'>

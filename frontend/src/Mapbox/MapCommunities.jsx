@@ -36,7 +36,7 @@ function CommunityMap({showDataList = true,style, width = '70vw', height='60vh'}
   useEffect(()=>{
      const loadContents=async()=>{
       try{
-       const getArray=await axios.post('http://localhost:8080/community/communities',{withCredentials:true});
+       const getArray=await axios.get('http://localhost:8080/community/communities',{withCredentials:true});
        console.log(getArray.data.data[0]);
        setCommunities(getArray.data.data);
       }

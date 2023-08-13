@@ -1,7 +1,7 @@
 
     import React, { useState } from 'react';
 
-    const Card = () => {
+    const Card = ({card}) => {
       const cardsData = [
         
     {
@@ -86,7 +86,7 @@
             }}><b>Our Products</b></h2>
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-            {getVisibleCards().map((card, index) => (
+            {card.map((card, index) => (
               <div  key={index} style={{
                 width: '100%',
                 maxWidth: '300px', // Limit the card width on smaller screens
@@ -103,11 +103,9 @@
                 },
               }}>
               {/* <br /> */}
-                <img style={{ width: '100%', height: '200px', objectFit: 'cover' }} src={card.image} alt={card.title} />
+                <img style={{ width: '100%', height: '200px', objectFit: 'cover' }} src={card.image}  />
                 <div style={{ padding: '16px' }} className="card-body">
-                  <h4 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '8px' }} className="card-title">
-                    {card.title}
-                  </h4>
+                  
                   <p style={{ fontSize: '14px', color: '#555' }} className="card-text">
                     {card.description}
                   </p>

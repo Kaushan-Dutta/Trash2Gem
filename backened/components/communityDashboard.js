@@ -24,7 +24,7 @@ router.post('/createCommunity',async(req,res)=>{
         return res.status(500).json({message:false,data:err.message});
     }
 })
-router.get('/:communityname',async(req,res)=>{
+router.post('/:communityname',async(req,res)=>{
     try{
       const getCommunity=await communityModel.findById(req.body.id).populate('products');
       console.log(getCommunity);
@@ -35,7 +35,7 @@ router.get('/:communityname',async(req,res)=>{
         return res.status(500).json({message:false,data:err.message});
     }
 })
-router.post('/communities',async(req,res)=>{
+router.get('/communities',async(req,res)=>{
     console.log("Enter");
     try{
       const getCommunity=await communityModel.find();
