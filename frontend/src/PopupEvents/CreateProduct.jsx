@@ -31,7 +31,7 @@ const CreateProduct = ({setCreateProduct}) => {
        console.log(getFile);
        const create=await axios.put('http://localhost:8080/community/createProduct',{_id:product._id,description:product.description,image:getFile.href,communityId:product.communityId},{ withCredentials: true });
        console.log(create);
-        //window.location.reload(); 
+    window.location.reload(); 
     }
   return (
     <div className='w-screen h-screen bg-black opacity-90 fixed z-30 justify-center items-center flex flex-row top-0 left-0'>

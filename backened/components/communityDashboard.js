@@ -35,11 +35,12 @@ router.get('/:communityname',async(req,res)=>{
         return res.status(500).json({message:false,data:err.message});
     }
 })
-router.get('/communities',async(req,res)=>{
+router.post('/communities',async(req,res)=>{
+    console.log("Enter");
     try{
       const getCommunity=await communityModel.find();
-      console.log(getCommunity);
-      return res.status(200).json({message:true,data:communities});
+      console.log("????????///",getCommunity);
+      return res.status(200).json({message:true,data:getCommunity});
     }
     catch(err){
         console.log(err);

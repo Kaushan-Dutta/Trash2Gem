@@ -74,7 +74,7 @@ function ProfileMenu({userName, fullName}) {
           <h3>{userName}<br/><span>{fullName}</span></h3>
           <ul>
             <li className = 'dropdownItem'><img src={user}></img>
-               {visitor?.vistorDesig=="User"?<a href="/userProfile"> Profile </a>:<a href="/communityProfile"> Profile </a>}
+              <a href= {visitor?.vistorDesig=="User"?"/userProfile":"/communityProfile"}> Profile </a>
             </li>
             <li className = 'dropdownItem'><img src={edit}></img>
               <a href="/communityProfile"> Edit Profile </a>

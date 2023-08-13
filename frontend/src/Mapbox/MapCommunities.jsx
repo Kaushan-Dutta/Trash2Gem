@@ -11,6 +11,7 @@ import Map, {
   Source,
   Layer
 } from "react-map-gl";
+import axios from 'axios';
 
 import Geocoder from "./Geocoder";
 import Icon from './icon.svg'
@@ -21,15 +22,29 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import * as parkDate from "./data.json";
 
 
+
 function CommunityMap({showDataList = true,style, width = '70vw', height='60vh'}) {
   const [popupInfo, setPopupInfo] = useState(null);
-
+  const [communities,setCommunities]=useState();
   const [viewPort, setViewPort] = useState({
     latitude: 45.4211,
     longitude: -75.6903,
     
     zoom:10
   });
+
+  useEffect(()=>{
+     const loadContents=async()=>{
+      try{
+       const getArray=await axios.post('http://localhost:8080/community/communities',{withCredentials:true});
+       console.log(getArray.data.data[0]);
+       setCommunities(getArray.data.data);
+      }
+      catch(err){
+        console.log(err);}
+      }
+     loadContents();
+  },[])
   
 
 
@@ -60,15 +75,16 @@ function CommunityMap({showDataList = true,style, width = '70vw', height='60vh'}
         <ScaleControl />
         
       
-        {parkDate.features.map((park, index) => (
+        {communities?.map((location, index) => 
+        (
             <Marker className="cursor-pointer"
-              key={park.properties.PARK_ID}
-              longitude={park.geometry.coordinates[0]}
-              latitude={park.geometry.coordinates[1]}
+              key={index}
+              longitude={location.location.latitude}
+              latitude={location.location.longitude}
               onClick={(e) => {
                 
                 e.originalEvent.stopPropagation();
-                setPopupInfo(park);
+                setPopupInfo(location);
               }}
             >
                 <button
@@ -81,14 +97,15 @@ function CommunityMap({showDataList = true,style, width = '70vw', height='60vh'}
         ))}
         {popupInfo && (
           <Popup 
-            longitude={popupInfo.geometry.coordinates[0]}
-            latitude={popupInfo.geometry.coordinates[1]}
+            longitude={popupInfo.location.latitude}
+            latitude={popupInfo.location.longitude}
             anchor="right"
             onClose={() => setPopupInfo(null)}
           >
             <div className="text-lg">
-              <h2>{popupInfo.properties.NAME}</h2>
-              <p>{popupInfo.properties.DESCRIPTIO}</p>
+              <img src={popupInfo.image} width="100px"/>
+              <h2>{popupInfo.communityName}</h2>
+              <p>{popupInfo.description}</p>
             </div>
           </Popup>
 
