@@ -7,21 +7,23 @@ import storage from '../Appwrite/appwrite.config';
 import {v4 as uuidv4} from 'uuid';
 import {useDropzone} from 'react-dropzone';
 
-const User=()=>{
+const Collector=()=>{
     const {visitor}=currentVisitor();
 
-    const [user,setUser]=useState({_id:visitor._id,username:""});  
-    async function createUser(e){
+    const [collector,setCollector]=useState({_id:visitor._id,collectorName:"",collectorAddress:"",walletAddress:""});  
+    async function createCollector(e){
        e.preventDefault();
-       console.log(user)
-       const create=await axios.post('http://localhost:8080/user/createProfile',{user},{ withCredentials: true });
+       console.log(collector)
+       const create=await axios.post('http://localhost:8080/collector/createProfile',collector,{ withCredentials: true });
        console.log(create);
        window.location.reload();
     }
     return(
         <div className=''>
-            <input type="text" placeholder='Enter Your Username'className='w-full px-5 py-2 rounded-md my-3' onChange={(e)=>setUser({...user,["username"]:e.target.value})}/>
-            <button className='bg-primary rounded-md px-5 py-2 text-white ' onClick={createUser}>Create Profile</button>
+            <input type="text" placeholder='Enter Your Username'className='w-full px-5 py-2 rounded-md my-3' onChange={(e)=>setCollector({...collector,["collectorName"]:e.target.value})}/>
+            <input type="text" placeholder='Enter Your Address'className='w-full px-5 py-2 rounded-md my-3' onChange={(e)=>setCollector({...collector,["collectorAddress"]:e.target.value})}/>
+            <input type="text" placeholder='Enter Your Wallet Address'className='w-full px-5 py-2 rounded-md my-3' onChange={(e)=>setCollector({...collector,["walletAddress"]:e.target.value})}/>
+            <button className='bg-primary rounded-md px-5 py-2 text-white ' onClick={createCollector}>Create Profile</button>
         </div>
     )
 }
@@ -84,14 +86,14 @@ const CreateProfile = ({setCreateProfile}) => {
   const changeVisitor=(e)=>{
         e.preventDefault();
         const res=document.getElementById('visitors').value;
-        if(res=="user"){setVistor(<User/>)}
+        if(res=="collector"){setVistor(<Collector/>)}
         else if(res=="community"){setVistor(<Community/>)}
         else{ setVistor(<Manager/>)}
   }
 
 
 
-  const [currentVistor,setVistor]=useState(<User/>);
+  const [currentVistor,setVistor]=useState(<Collector/>);
   return (
     <div className='w-screen h-screen bg-black opacity-90 fixed z-30 justify-center items-center flex flex-row top-0 left-0'>
         <div className='w-[60vw] h-[60vh] bg-slate-300 rounded-md p-10'>
@@ -101,7 +103,7 @@ const CreateProfile = ({setCreateProfile}) => {
             <div className=''>
                 <label><b>Select your identity:</b></label>
                 <select id="visitors" onChange={changeVisitor} className='w-full my-3 py-2 px-5 font-mono text-lg rounded-md '>
-                    <option value="user">User</option>
+                    <option value="collector">Waste Collector</option>
                     <option value="community">Community</option>
                     <option value="manager">Manager</option>
                 </select>

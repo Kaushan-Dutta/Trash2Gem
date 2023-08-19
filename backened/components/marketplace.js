@@ -6,7 +6,7 @@ const {productModel}=require('../models/otherModel');
 
 router.get('/products',async(req,res)=>{
     try{
-      const displayProducts=await productModel.find({});
+      const displayProducts=await productModel.find();
       return res.status(200).json({message:true,data:displayProducts});
     }
     catch(err){

@@ -20,7 +20,7 @@ const App = () => {
        <Route path="/marketplace" element={<Marketplace/>}/>
        <Route path="/store" element={<StorePage/>}/>
        <Route path="/communities" element={<Communities/>}/>
-        <Route path="/userProfile" element={<Finaluserprof/>}/>
+       <Route path="/collectorProfile" element={<Finaluserprof/>}/>
        <Route path="/communityProfile" element={<Finalpage/>}/>
     </Routes>
     <Footer/>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Carduser = (props) => {
+const Carduser = ({collector}) => {
   const userStyles = {
     card: {
       fontFamily: "Arial, sans-serif",
@@ -82,12 +82,13 @@ const Carduser = (props) => {
       </div>
 
       <div style={userStyles.userInfo} className="user-info">
-        <h3 style={userStyles.name}>{props.name}</h3>
-        <p style={userStyles.contact}>{props.gmail}</p>
+        <h3 style={userStyles.name}>{collector.collectorName}</h3>
+        <h3 style={userStyles.name}>{collector.collectorAddress}</h3>
+        <h3 style={userStyles.name}>{collector.walletAddress}</h3>
+
+        <p style={userStyles.contact}>{collector.email}</p>
         {/* <p style={userStyles.contact}>{props.contact}</p> */}
-        <button style={userStyles.button} value={props.product} type="button">
-          Dummy btn
-        </button>
+       
       </div>
     </div>
   );

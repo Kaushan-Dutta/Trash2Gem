@@ -74,13 +74,13 @@ function ProfileMenu({userName, fullName}) {
           <h3>{userName}<br/><span>{fullName}</span></h3>
           <ul>
             <li className = 'dropdownItem'><img src={user}></img>
-              <a href= {visitor?.vistorDesig=="User"?"/userProfile":"/communityProfile"}> Profile </a>
+              <a href= {visitor?.visitorDesig=="Collector"?"/collectorProfile":"/communityProfile"}> Profile </a>
             </li>
             <li className = 'dropdownItem'><img src={edit}></img>
               <a href="/communityProfile"> Edit Profile </a>
             </li>
-            {visitor?.vistorDesig=="User" && <li className = 'dropdownItem' onClick={()=>setAddItem(true)}><img src={edit}></img><a> Add Item </a></li>}
-            {visitor?.vistorDesig=="Community" && <li className = 'dropdownItem' onClick={()=>setCreateProduct(true)}><img src={edit}></img><a> Create Product </a></li>}
+            {visitor?.visitorDesig=="Collector" && <li className = 'dropdownItem' onClick={()=>setAddItem(true)}><img src={edit}></img><a> Add Item </a></li>}
+            {visitor?.visitorDesig=="Community" && <li className = 'dropdownItem' onClick={()=>setCreateProduct(true)}><img src={edit}></img><a> Create Product </a></li>}
             
             <button disabled=
             {!account==0} className='bg-primary rounded-md w-full text-white font-mons px-5 py-2 text-xl' onClick={setMetamask}>{account==0?"Connect Wallet":account.slice(0,6)+"..."+account.slice(-7,)}</button>

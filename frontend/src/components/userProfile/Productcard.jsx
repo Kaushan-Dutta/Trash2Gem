@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-    const Productcard = () => {
+    const Productcard = ({boughtProducts}) => {
       const cardsData = [
         
     {
@@ -85,7 +85,7 @@ import React, { useState } from 'react';
             }}><b>latest orders</b></h2>
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-            {getVisibleCards().map((card, index) => (
+            {boughtProducts.map((card, index) => (
               <div  key={index} style={{
                 width: '100%',
                 maxWidth: '300px', // Limit the card width on smaller screens

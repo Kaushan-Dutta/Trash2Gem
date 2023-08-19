@@ -16,7 +16,7 @@ app.post("/",(req,res)=>{
 })
 
 app.use('/',require('./components/landingSection'));
-app.use('/user',require('./components/userDashboard'));
+app.use('/collector',require('./components/collectorDashboard'));
 app.use('/marketplace',require('./components/marketplace'));
 app.use('/community',require('./components/communityDashboard'));
 

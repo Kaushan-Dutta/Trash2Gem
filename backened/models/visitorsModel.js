@@ -4,7 +4,7 @@ require('../connectServer');
 
 const visitorSchema=new mongoose.Schema({
     email:{type:String,required:true},
-    vistorDesig:{type:String,enum:["User","Owner","Manager","Community"]},
+    visitorDesig:{type:String,enum:["Collector","Manager","Community"]},
     isProfileCreated:{type:Boolean,default:false}
 });
 const visitorModel=new mongoose.model("VisitorModel",visitorSchema);

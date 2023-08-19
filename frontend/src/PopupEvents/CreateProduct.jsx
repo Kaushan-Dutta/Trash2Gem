@@ -9,7 +9,7 @@ import {useDropzone} from 'react-dropzone';
 
 const CreateProduct = ({setCreateProduct}) => {
     const {visitor}=currentVisitor();
-    const [product,setProduct]=useState({_id:Math.floor(Math.random()*100),description:"",image:"",communityId:visitor._id})
+    const [product,setProduct]=useState({_id:Math.floor(Math.random()*100),description:"",image:"",owner:visitor._id})
     const [profileImage,setProfileImge]=useState();
     
     const onDrop = useCallback(acceptedFiles => {
