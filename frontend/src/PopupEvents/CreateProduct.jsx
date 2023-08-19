@@ -35,7 +35,7 @@ const CreateProduct = ({setCreateProduct}) => {
     }
   return (
     <div className='w-screen h-screen bg-black opacity-90 fixed z-30 justify-center items-center flex flex-row top-0 left-0'>
-        <div className='w-[80vw] h-[70vh] bg-slate-300 rounded-md p-10'>
+        <div className='w-[50vw] h-[50vh] bg-slate-300 rounded-md p-10'>
             <div className='flex flex-row justify-end'>
                 <ImCross onClick={()=>setCreateProduct(false)}/>
             </div>

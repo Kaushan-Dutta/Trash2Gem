@@ -10,7 +10,7 @@ const Product = ({description, image, key}) => {
             <img src={image} className='w-full'/>
         </div>
         <div className='text-left font-preah mt-5 grid grid-cols-1 gap-1 h-1/2'>
-            <p className='font-mons'><b>Plastic Pencil Holder</b></p>
+            
             <p>{description}</p>
             <div className='flex flex-row justify-between items-center -translate-y-3 relative'>
                 <button className={`cursor-pointer text-white bg-primary p-2 rounded-md disabled:opacity-5 ${!state && `disabled`}`}>Buy Now</button>

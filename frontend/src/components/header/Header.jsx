@@ -88,7 +88,7 @@ const Header = () => {
             <button className="btn green logout" onClick={loginWithPopup}>Login</button>
           }
         </div>
-        {visitor?.isProfileCreated && <ProfileMenu userName="vicky@66" fullName="Vikram Bhatra"/>}
+        {visitor?.isProfileCreated && <ProfileMenu userName={visitor?.email} fullName="Vikram Bhatra"/>}
         
       
       {createProfile && <CreateProfile setCreateProfile={setCreateProfile}/>}

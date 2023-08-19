@@ -2,6 +2,9 @@ import React from "react";
 import "./style.scss";
 import waste_recycle from "/src/assets/waste_recycle.svg";
 import ContentWrapper from "../../../components/contentwrapper/ContentWrapper";
+import { OrbitControls, PerspectiveCamera, RenderTexture } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+import Earth from '../../../3D_componet/Earth'
 
 const Topbanner = () => {
   return (
@@ -11,13 +14,17 @@ const Topbanner = () => {
           <div className="topBannerContent">
             <p className="title">Reduce Reuse <span>Recycle.</span></p>
             <span className="subTitle">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Explore the curated pathways of our Recycling Wonderland, where once-forgotten items are reimagined into art, technology, and possibility
             </span>
             <button className="btn green">Get Started</button>
           </div>
           <div className="side-img">
-            <img src={waste_recycle} />
+            <Canvas>
+                <OrbitControls enableZoom={false} autoRotate/>
+                <ambientLight intensity={1}/>
+                <directionalLight position={[3,2,1]}/>
+                <Earth/>
+            </Canvas>
           </div>
         </div>
         {/*<div style={{height: 1000}}>

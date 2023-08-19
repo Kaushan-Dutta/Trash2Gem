@@ -83,7 +83,7 @@ function ProfileMenu({userName, fullName}) {
             {visitor?.vistorDesig=="Community" && <li className = 'dropdownItem' onClick={()=>setCreateProduct(true)}><img src={edit}></img><a> Create Product </a></li>}
             
             <button disabled=
-            {!account==0} className='bg-primary rounded-md text-white font-mons px-5 py-2 text-xl' onClick={setMetamask}>{account==0?"Connect Wallet":account.slice(0,6)+"..."+account.slice(-7,)}</button>
+            {!account==0} className='bg-primary rounded-md w-full text-white font-mons px-5 py-2 text-xl' onClick={setMetamask}>{account==0?"Connect Wallet":account.slice(0,6)+"..."+account.slice(-7,)}</button>
           </ul>
         </div>
       </div>

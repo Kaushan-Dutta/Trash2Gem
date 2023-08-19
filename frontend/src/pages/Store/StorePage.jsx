@@ -1,38 +1,41 @@
 import React from 'react'
 import StoreWaste from './StoreWaste'
-
+import Cardboard from '../../3D_componet/Cardboard_box'
+import Glass from '../../3D_componet/Glass_bottle'
+import MetalSheet from '../../3D_componet/Metal_sheet'
+import Electronics from '../../3D_componet/Music_tape'
+import Plastic from '../../3D_componet/Hospital_bin'
+import Leather from '../../3D_componet/Ld_shoe_men_2'
 
 
 const index = () => {
-  const array=[12,3,4,5,6,7,8,9]
   const recycleWaste=[
     {
-      id:1,
-      name:"Plastics"
+      model:<Cardboard/>
     },
     {
-      id:2,
-      name:"Glasses"
-    },{
-      id:3,
-      name:"Metals"
-    },{
-      id:4,
-      name:"Paper"
-    },{
-      id:5,
-      name:"Cans"
-    },{
-      id:6,
-      name:"Electronics"
+      model:<Glass/>
+    },
+    {
+      model:<MetalSheet/>
+    },
+    {
+      model:<Electronics/>
+    },
+    {
+      model:<Plastic/>
+    },
+    {
+      model:<Leather/>
     }
+    
   ]
   return (
-    <div className='py-40  secondary-container grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 place-items-center'>
+    <div className='py-40  secondary-container grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 place-items-center'>
        {
         recycleWaste.map((obj,id)=>{
           return(
-            <StoreWaste text={obj.name} id={id}/>
+            <StoreWaste model={obj.model} id={id}/>
           )
         })
        }
