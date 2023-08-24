@@ -9,7 +9,7 @@ import {useDropzone} from 'react-dropzone';
 
 const CreateProduct = ({setCreateProduct}) => {
     const {visitor}=currentVisitor();
-    const [product,setProduct]=useState({_id:Math.floor(Math.random()*100),description:"",image:"",owner:visitor._id})
+    const [product,setProduct]=useState({description:"",image:"",price:0,owner:visitor._id})
     const [profileImage,setProfileImge]=useState();
     
     const onDrop = useCallback(acceptedFiles => {
@@ -21,15 +21,14 @@ const CreateProduct = ({setCreateProduct}) => {
     
     async function createProduct(e){
         e.preventDefault();
-        console.log(product);
-        console.log(storage);
+      
 
         const promise = await storage.createFile('64d7a62faef4f19b4ed7', uuidv4(), profileImage);
         
        console.log(promise);
        const getFile = await storage.getFilePreview('64d7a62faef4f19b4ed7', promise.$id);
        console.log(getFile);
-       const create=await axios.put('http://localhost:8080/community/createProduct',{_id:product._id,description:product.description,image:getFile.href,communityId:product.communityId},{ withCredentials: true });
+       const create=await axios.put('http://localhost:8080/community/createProduct',{description:product.description,price:product.price,image:getFile.href,owner:product.communityId},{ withCredentials: true });
        console.log(create);
     window.location.reload(); 
     }
@@ -42,7 +41,7 @@ const CreateProduct = ({setCreateProduct}) => {
             <div className=''>
                 <div className=''>
                    <label><b>Enter the price :</b></label>
-                   <input type='number' placeholder="Enter the amount" className='px-5 py-2 rounded-md w-full my-3'/>
+                   <input type='number' placeholder="Enter the amount" className='px-5 py-2 rounded-md w-full my-3' onChange={(e)=>setProduct({...product,["price"]:e.target.value})}/>
                    <label><b>Enter the description of the product:</b></label>
                    <textarea   className='w-full h-[60px] px-5 py-2 rounded-md my-2' placeholder='Enter the details' onChange={(e)=>setProduct({...product,["description"]:e.target.value})}/>
                 </div>

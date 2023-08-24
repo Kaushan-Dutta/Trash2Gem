@@ -1,13 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaBeer } from 'react-icons/fa';
 import BuyWaste from '../../PopupEvents/BuyWaste';
 import { OrbitControls, PerspectiveCamera, RenderTexture } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { currentVisitor } from '../../logic/getUser';
+import { useAuth0 } from '@auth0/auth0-react';
 
-const StoreWaste = ({model,id}) => {
+const StoreWaste = ({model,id,content}) => {
   const [buyWaste,setBuyWaste]=useState(false);
   const {visitor}=currentVisitor();
+  const { isLoading, isAuthenticated, error, user, getAccessTokenSilently,loginWithRedirect, loginWithPopup,logout } =
+  useAuth0();
+  
   return (
     
     <div className='border-2 border-primary rounded-md p-5 w-[300px] h-[250px] m-5 group  transition-al duration-300 ease-in-out' key={id}>
@@ -21,16 +25,21 @@ const StoreWaste = ({model,id}) => {
               </Canvas>
           </div>
           <div className='border-2 border-primary h-1/4 text-white font-mons text-2xl flex flex-row items-center justify-center '>
-              Cardboard Scrap
+              {content.wasteType}
           </div>
       </div>
       <div className='group-hover:opacity-100 opacity-0 transition-all relative -translate-y-48 text-center h-full   text-lg duration-300 ease-in-out'>
 
-              <p><b className='text-primary'>230kg</b></p>
+              <p><b className='text-primary'>{content.amountPresent}kg</b></p>
               <label className=' font-mons'>Amount Received</label>
-              <p><b className='text-primary '>13kg</b></p>
+              <p><b className='text-primary '>{content.amountRecycled}kg</b></p>
               <label className=' font-mons'>Amount Sold</label>
-              <button className='w-full rounded-md px-2 py-2 font-mons text-white bg-primary my-5' onClick={()=>setBuyWaste(true)}>Buy Now</button>
+       
+              {user?.given_name && (
+               visitor?.visitorDesig=="Collector"?
+                <button className='w-full rounded-md px-2 py-2 font-mons text-white bg-primary my-5' onClick={()=>setBuyWaste(true)}>Sell Waste</button>: 
+                <button className='w-full rounded-md px-2 py-2 font-mons text-white bg-primary my-5' onClick={()=>setBuyWaste(true)}>Buy Now</button>
+              )}
       </div>
       {buyWaste && <BuyWaste setBuyWaste={setBuyWaste}/>}
     </div>

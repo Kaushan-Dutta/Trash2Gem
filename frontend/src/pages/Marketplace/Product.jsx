@@ -7,7 +7,7 @@ const Product = ({description, image, key}) => {
   return (
     <div className='bg-slate-200 p-5 rounded-md shadow- w-[350px] h-[350px] flex-shrink-0 '>
         <div className='h-1/2 flex flex-row justify-center'>
-            <img src={image} className='w-full'/>
+            <img src={image} className='w-full' alt='Product Item'/>
         </div>
         <div className='text-left font-preah mt-5 grid grid-cols-1 gap-1 h-1/2'>
             

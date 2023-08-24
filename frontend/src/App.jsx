@@ -9,7 +9,7 @@ import StorePage from './pages/Store/StorePage';
 import Communities from './pages/Communities/Communities'
 //import AddItem from '../PopupEvents/AddItem';
 import Finalpage from './components/communityProfile/Finalpage';
-import Finaluserprof from './components/userProfile/Finaluserprof';
+import CollectorProfile from './components/collectorProfile/Profile';
 
 const App = () => {
   return (
@@ -20,7 +20,7 @@ const App = () => {
        <Route path="/marketplace" element={<Marketplace/>}/>
        <Route path="/store" element={<StorePage/>}/>
        <Route path="/communities" element={<Communities/>}/>
-       <Route path="/collectorProfile" element={<Finaluserprof/>}/>
+       <Route path="/collectorProfile" element={<CollectorProfile/>}/>
        <Route path="/communityProfile" element={<Finalpage/>}/>
     </Routes>
     <Footer/>

@@ -9,7 +9,6 @@ import { getConnection } from '../../../logic/connectWallet';
 import "./style.scss";
 import { currentVisitor } from "../../../logic/getUser";
 import CreateProduct from '../../../PopupEvents/CreateProduct';
-import AddItem from '../../../PopupEvents/AddItem';
 
 import React, {useState, useEffect, useRef} from 'react';
 
@@ -79,7 +78,6 @@ function ProfileMenu({userName, fullName}) {
             <li className = 'dropdownItem'><img src={edit}></img>
               <a href="/communityProfile"> Edit Profile </a>
             </li>
-            {visitor?.visitorDesig=="Collector" && <li className = 'dropdownItem' onClick={()=>setAddItem(true)}><img src={edit}></img><a> Add Item </a></li>}
             {visitor?.visitorDesig=="Community" && <li className = 'dropdownItem' onClick={()=>setCreateProduct(true)}><img src={edit}></img><a> Create Product </a></li>}
             
             <button disabled=

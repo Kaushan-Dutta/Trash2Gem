@@ -1,8 +1,6 @@
 import React,{useEffect,useState} from "react";
 import { currentVisitor } from "../../logic/getUser";
-import ProductCarousel from './ProductCarousel';
 import ProfileCard from './Profile';
-import Card from './Card';
 import Useful from './Useful';
 import axios from 'axios';
 
@@ -26,7 +24,7 @@ function Finalpage(){
         <div className="py-20">
             {community && 
               <><ProfileCard image={community.image} name={community.communityName} descrip={community.description}  />
-              <Useful/><Card card={community.products}/></>}
+              <Useful/></>}
         </div>
     )}
 export default Finalpage;

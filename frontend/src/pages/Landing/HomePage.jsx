@@ -10,6 +10,9 @@ const HomePage = () => {
       <Topbanner/>
       <CommonItems/>
       <RecycledProduct/>
+      <div className="my-10 text-center text-4xl  font-bold">
+            <span className='text-primary'>Our</span> Communities
+      </div>
       <div className='my-10 flex flex-row justify-center'>
           <MapCommunities/>
       </div>

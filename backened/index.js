@@ -19,6 +19,7 @@ app.use('/',require('./components/landingSection'));
 app.use('/collector',require('./components/collectorDashboard'));
 app.use('/marketplace',require('./components/marketplace'));
 app.use('/community',require('./components/communityDashboard'));
+app.use('/wasteStore',require('./components/wasteDashboard'));
 
 server.listen(8080,()=>{
     console.log("Server Started")
