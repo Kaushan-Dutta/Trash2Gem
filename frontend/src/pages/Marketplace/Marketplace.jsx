@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react';
 import Product from './Product';
 import axios from 'axios';
+import "./style.scss";
+import ContentWrapper from "./../../components/contentwrapper/ContentWrapper";
 
 const Marketplace = () => {
   const array=[1,2,3,4,5,6,7,8]
@@ -20,7 +22,8 @@ const Marketplace = () => {
  },[])
 
   return (
-    <div className="py-40 primary-container w-full ">
+    <ContentWrapper>
+    <div className="market">
 
       <div className='py-10 flex overflow-x-auto space-x-8 w-full  overflow-y-visible'>
 
@@ -38,6 +41,7 @@ const Marketplace = () => {
       </div> */}
 
     </div>
+    </ContentWrapper>
   )
 }
 
