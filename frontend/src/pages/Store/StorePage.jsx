@@ -7,6 +7,8 @@ import Electronics from '../../3D_componet/Music_tape'
 import Plastic from '../../3D_componet/Hospital_bin'
 import Leather from '../../3D_componet/Ld_shoe_men_2'
 import axios from 'axios';
+import ContentWrapper from './../../components/contentwrapper/ContentWrapper'
+import "./style.scss";
 
 
 
@@ -42,15 +44,17 @@ const index = () => {
     loadContents();
   },[])
   return (
-    <div className='py-40  secondary-container grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 place-items-center'>
+    <ContentWrapper>
+    <div className='store'>
        {wasteContent && 
         wasteContent.map((obj,id)=>{
           return(
-            <StoreWaste model={recycleWaste[id].model} id={id} content={obj} />
+            <StoreWaste key={id} model={recycleWaste[id].model} id={id} content={obj} />
           )
         })
        }
     </div>
+    </ContentWrapper>
   )
 }
 

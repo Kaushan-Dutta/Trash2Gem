@@ -14,11 +14,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       domain="dev-h6dwfn0pny2sne5s.us.auth0.com"
       clientId="UCdX0gYf4D1Ifgu2i1zgyoEN6KnCQM0y" redirect_uri={window.location.origin}>
       <CheckVisitor>
-        <ConnectWallet>
+        {/*<ConnectWallet>*/}
           <BrowserRouter>
             <App />
           </BrowserRouter>
-        </ConnectWallet>
+        {/*<ConnectWallet>*/}
       </CheckVisitor>
     </Auth0Provider>
   </React.StrictMode>,
