@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Auth0Provider } from '@auth0/auth0-react';
 import CheckVisitor from './logic/getUser.jsx';
 import ConnectWallet from './logic/connectWallet.jsx';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -16,7 +17,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <CheckVisitor>
         {/*<ConnectWallet>*/}
           <BrowserRouter>
+            <Toaster/>
             <App />
+            
           </BrowserRouter>
         {/*</ConnectWallet>*/}
       </CheckVisitor>
