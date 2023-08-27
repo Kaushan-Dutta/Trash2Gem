@@ -65,7 +65,7 @@ router.put('/sellWaste',async(req,res)=>{
       const sellWaste=await wasteModel.findById(wasteId);
       sellWaste.amountPresent+=wasteAmount;
       await sellWaste.save();
-      return res.status(200).json({message:true,data:{getCollector,getProduct:getCollector}});
+      return res.status(200).json({message:true,data:{getCollector,sellWaste}});
     }
     catch(err){
         console.log(err);

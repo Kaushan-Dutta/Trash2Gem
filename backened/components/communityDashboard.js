@@ -53,8 +53,9 @@ router.put('/createProduct',async(req,res)=>{
     try{
      const createProduct=new productModel({description,image,owner,price});
      await createProduct.save();
-     const updateCommunity=await communityModel.findById(owner);
-     updateCommunity.products.push(_id);
+     console.log(createProduct);
+     const updateCommunity=await communityModel.findById({_id:owner});
+     updateCommunity.products.push(createProduct);
      await updateCommunity.save();
      return res.status(200).json({message:true,data:createProduct});
     }

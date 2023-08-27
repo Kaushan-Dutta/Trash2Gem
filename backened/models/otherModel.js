@@ -8,7 +8,6 @@ const nftSchema = new mongoose.Schema({
 });
 
 const productSchema = new mongoose.Schema({
-  _id: { type: Number, required: true },
   description: { type: String, required: true },
   image: { type: String, require: true },
   owner: {

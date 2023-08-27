@@ -41,7 +41,7 @@ const StoreWaste = ({model,id,content}) => {
                 <button className='w-full rounded-md px-2 py-2 font-mons text-white bg-primary my-5' onClick={()=>setBuyWaste(true)}>Buy Now</button>
               )}
       </div>
-      {buyWaste && <BuyWaste setBuyWaste={setBuyWaste}/>}
+      {buyWaste && <BuyWaste setBuyWaste={setBuyWaste} wasteId={content._id}/>}
     </div>
   )
 }
