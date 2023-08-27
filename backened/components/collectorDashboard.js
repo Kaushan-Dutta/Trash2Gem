@@ -59,13 +59,15 @@ router.put('/buyItem',async(req,res)=>{
         return res.status(400).json({message:false,data:err.message})
     }
 })
-router.put('/sellWaste',async(req,res)=>{
+router.post('/sellWaste',async(req,res)=>{
     const {wasteId,wasteAmount}=req.body;
+    console.log(wasteId,wasteAmount);
     try{
       const sellWaste=await wasteModel.findById(wasteId);
       sellWaste.amountPresent+=wasteAmount;
       await sellWaste.save();
-      return res.status(200).json({message:true,data:{getCollector,sellWaste}});
+      console.log(sellWaste)
+      return res.status(200).json({message:true,data:{sellWaste}});
     }
     catch(err){
         console.log(err);
