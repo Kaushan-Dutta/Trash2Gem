@@ -15,24 +15,28 @@
     align-items: center;
     padding-top: 150px;
     padding-bottom: 50px;
+    padding-right: 40px;
+    padding-left: 40px;
     margin: auto;
 
     .comm-item {
         display: flex;
         flex-direction: column;
         align-items: center;
-        box-shadow: 0 5px 25px rgba(124, 255, 94, 0.991);
+        box-shadow: 0 10px 25px rgba(0, 128, 0, 0.209);
         margin-bottom: 40px;
         border-radius: 20px;
         border: 2px;
+        min-width: 80vw;
+        
 
         @media only screen and (min-width: 875px) {
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
             align-items: flex-start;
-            justify-content: space-between;
             margin-bottom: 30px;
+            min-width: 850px;
         }
     
 

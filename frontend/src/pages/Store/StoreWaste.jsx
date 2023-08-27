@@ -14,21 +14,21 @@ const StoreWaste = ({model,id,content}) => {
   
   return (
     
-    <div className='border-2 border-primary rounded-md p-5 w-[300px] h-[250px] m-5 group  transition-al duration-300 ease-in-out' key={id}>
-      <div className='group-hover:opacity-0 transition-all h-full duration-300 ease-in-out'>
+    <div className=' rounded-md p-5 w-[250px] h-[220px] m-5 group  transition-al duration-300 ease-in-out item' key={id}>
+      <div className='group-hover:opacity-0 transition-all h-full duration-300 ease-in-out item_hover'>
           <div className='h-3/4 flex flex-row justify-center items-center '>
               <Canvas>
-                    <OrbitControls enableZoom={false} autoRotate/>
+                    <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={8}/>
                     <ambientLight intensity={1}/>
                     <directionalLight position={[3,2,50]}/>
                     {model}
               </Canvas>
           </div>
-          <div className='border-2 border-primary h-1/4 text-white font-mons text-2xl flex flex-row items-center justify-center '>
+          <div className='border-2 border-primary h-1/4 text- font-mons text-xl flex flex-row items-center justify-center '>
               {content.wasteType}
           </div>
       </div>
-      <div className='group-hover:opacity-100 opacity-0 transition-all relative -translate-y-48 text-center h-full   text-lg duration-300 ease-in-out'>
+      <div className='group-hover:opacity-100 opacity-0 transition-all relative -translate-y-44 text-center  text-xl duration-300 ease-in-out'>
 
               <p><b className='text-primary'>{content.amountPresent}kg</b></p>
               <label className=' font-mons'>Amount Received</label>
