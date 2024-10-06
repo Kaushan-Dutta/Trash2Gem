@@ -5,7 +5,7 @@ import settings from './img/settings.png';
 import help from './img/question.png';
 import logout from './img/log-out.png';
 import { ethers } from 'ethers';
-import { getConnection } from '../../../logic/connectWallet'
+// import { getConnection } from '../../../logic/connectWallet'
 import "./style.scss";
 import { currentVisitor } from "../../../logic/getUser";
 import CreateProduct from '../../../PopupEvents/CreateProduct';
@@ -21,7 +21,7 @@ function ProfileMenu({userName, fullName}) {
   let menuRef = useRef();
 
   const {visitor,setVisitor}=currentVisitor();
-  const {setStatus,account,setAccount,setChain,contract,setContract,provider,setProvider}=getConnection();
+  // const {setStatus,account,setAccount,setChain,contract,setContract,provider,setProvider}=getConnection();
   
 
   useEffect(() => {
@@ -41,28 +41,28 @@ function ProfileMenu({userName, fullName}) {
     }
 
   });
-   const setMetamask=async(e)=>{
-    e.preventDefault();
-    let provider=window.ethereum;
-    try{
-      await provider.enable();
-    }
+  //  const setMetamask=async(e)=>{
+  //   e.preventDefault();
+  //   let provider=window.ethereum;
+  //   try{
+  //     await provider.enable();
+  //   }
  
-    catch(err){
-      console.log(err);
-    }
-    console.log(provider);
-    const web3 = new ethers.providers.Web3Provider(provider);
-    const signer = web3.getSigner(); 
-    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-    const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+  //   catch(err){
+  //     console.log(err);
+  //   }
+  //   console.log(provider);
+  //   const web3 = new ethers.providers.Web3Provider(provider);
+  //   const signer = web3.getSigner(); 
+  //   const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+  //   const chainId = await window.ethereum.request({ method: 'eth_chainId' });
     
 
-    setAccount(accounts[0]);
-    setStatus("connected");
-    setProvider(provider);
-    setChain(chainId);
-  }
+  //   setAccount(accounts[0]);
+  //   setStatus("connected");
+  //   setProvider(provider);
+  //   setChain(chainId);
+  // }
  
   return (
     <div className="App">
@@ -82,14 +82,16 @@ function ProfileMenu({userName, fullName}) {
             </li>
             {visitor?.visitorDesig=="Community" && <li className = 'dropdownItem' onClick={()=>setCreateProduct(true)}><img src={edit}></img><a> Create Product </a></li>}
             
-            <button disabled=
-            {!account==0} className='bg-primary rounded-md w-full text-white font-mons px-5 py-2 text-xl' onClick={setMetamask}>{account==0?"Connect Wallet":account.slice(0,6)+"..."+account.slice(-7,)}</button> 
+            {/* <button disabled=
+            {!account==0} className='bg-primary rounded-md w-full text-white font-mons px-5 py-2 text-xl' onClick={setMetamask}>{account==0?"Connect Wallet":account.slice(0,6)+"..."+account.slice(-7,)}</button>  */}
           </ul>
         </div>
       </div>
-    {addItem && <AddItem  setAddItem={setAddItem}/>
+    {/* {addItem && <AddItem  setAddItem={setAddItem}/>
       }
       {createProduct && <CreateProduct setCreateProduct={setCreateProduct}/>
+    } */}
+     {createProduct && <CreateProduct setCreateProduct={setCreateProduct}/>
     }
     </div>
   );

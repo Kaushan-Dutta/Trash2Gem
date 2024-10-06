@@ -35,11 +35,11 @@ const StoreWaste = ({model,id,content}) => {
               <p><b className='text-primary '>{content.amountRecycled}kg</b></p>
               <label className=' font-mons'>Amount Sold</label>
        
-              {user?.given_name && (
+              {
                visitor?.visitorDesig=="Collector"?
                 <button className='w-full rounded-md px-2 py-2 font-mons text-white bg-primary my-5' onClick={()=>setBuyWaste(true)}>Sell Waste</button>: 
                 <button className='w-full rounded-md px-2 py-2 font-mons text-white bg-primary my-5' onClick={()=>setBuyWaste(true)}>Buy Now</button>
-              )}
+              }
       </div>
       {buyWaste && <BuyWaste setBuyWaste={setBuyWaste} wasteId={content._id}/>}
     </div>
